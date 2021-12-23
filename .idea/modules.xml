@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cloud_config_server/cloud_config_server.iml" filepath="$PROJECT_DIR$/cloud_config_server/cloud_config_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud_consumer/cloud_consumer.iml" filepath="$PROJECT_DIR$/cloud_consumer/cloud_consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud_dashboard/cloud_dashboard.iml" filepath="$PROJECT_DIR$/cloud_dashboard/cloud_dashboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud_eureka/cloud_eureka.iml" filepath="$PROJECT_DIR$/cloud_eureka/cloud_eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud_gateway/cloud_gateway.iml" filepath="$PROJECT_DIR$/cloud_gateway/cloud_gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud_gateway_filter/cloud_gateway_filter.iml" filepath="$PROJECT_DIR$/cloud_gateway_filter/cloud_gateway_filter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud_producer/cloud_producer.iml" filepath="$PROJECT_DIR$/cloud_producer/cloud_producer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud_turbine/cloud_turbine.iml" filepath="$PROJECT_DIR$/cloud_turbine/cloud_turbine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spring_cloud_demo.iml" filepath="$PROJECT_DIR$/.idea/spring_cloud_demo.iml" />
+    </modules>
+  </component>
+</project>

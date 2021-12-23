@@ -1,0 +1,29 @@
+
+spring:
+  application:
+    name: spring-cloud-gateway-filter
+  cloud:
+    gateway:
+      routes:
+        - id: add_request_parameter_route
+          uri: lb://spring-cloud-producer
+          filters:
+            - AddRequestParameter=foo, bar
+          predicates:
+            - Method=GET
+      discovery:
+        locator:
+          enabled: true # 开启从注册中心动态创建路由的功能，利用微服务名进行路由"
+          lower-case-service-id: true
+
+
+
+server:
+  port: 8032
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+
