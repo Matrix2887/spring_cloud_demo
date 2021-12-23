@@ -18,6 +18,7 @@
         <module>cloud_gateway</module>
         <module>cloud_gateway_filter</module>
         <module>cloud_strip_prefix_filter</module>
+        <module>cloud_prefix_path_filter</module>
     </modules>
 
     <parent>

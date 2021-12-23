@@ -1,0 +1,29 @@
+
+spring:
+  application:
+    name: spring-cloud-prefix-path-filter
+  cloud:
+    gateway:
+      routes:
+        - id: prefixpath_route
+          uri: lb://spring-cloud-producer
+          filters:
+            - PrefixPath=/hi
+          predicates:
+            - Path=/prefix
+      discovery:
+        locator:
+          enabled: true # 开启从注册中心动态创建路由的功能，利用微服务名进行路由"
+          lower-case-service-id: true
+
+
+
+server:
+  port: 8034
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+

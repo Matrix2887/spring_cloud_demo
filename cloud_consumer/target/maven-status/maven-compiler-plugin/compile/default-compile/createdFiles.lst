@@ -1,6 +1,0 @@
-cloud\ConsumerApplication.class
-cloud\controller\ConsumerController.class
-cloud\hystrix\HelloRemoteHystrixFactory$1.class
-cloud\hystrix\HelloRemoteHystrixFactory.class
-cloud\remote\HelloRemote.class
-cloud\hystrix\HelloRemoteHystrix.class

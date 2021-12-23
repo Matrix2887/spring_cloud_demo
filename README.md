@@ -10,5 +10,6 @@
 <h5> cloud_gateway -- 服务网关</h5>
 <h5> cloud_gateway_filter -- 过滤器基本使用</h5>
 <h5> cloud_strip_prefix_filter -- StripPrefix过滤器使用示例</h5>
+<h5> cloud_prefix_path_filter -- PrefixPath过滤器使用示例</h5>
 
 
