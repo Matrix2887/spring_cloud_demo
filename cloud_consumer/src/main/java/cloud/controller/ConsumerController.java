@@ -27,4 +27,12 @@ public class ConsumerController {
         return hello;
     }
 
+
+    @RequestMapping("/hi/{name}")
+    public String hi(@PathVariable("name") String name) {
+        String hi = helloRemote.hi(name);
+        hi += " is consumer";
+        return hi;
+    }
+
 }

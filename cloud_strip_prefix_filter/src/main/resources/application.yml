@@ -1,0 +1,29 @@
+
+spring:
+  application:
+    name: spring-cloud-strip-prefix-filter
+  cloud:
+    gateway:
+      routes:
+        - id: nameRoot
+          uri: lb://spring-cloud-producer
+          filters:
+            - StripPrefix=2
+          predicates:
+            - Path=/name/**
+      discovery:
+        locator:
+          enabled: true # 开启从注册中心动态创建路由的功能，利用微服务名进行路由"
+          lower-case-service-id: true
+
+
+
+server:
+  port: 8033
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+

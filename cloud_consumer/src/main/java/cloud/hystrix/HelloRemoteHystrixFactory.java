@@ -14,6 +14,11 @@ public class HelloRemoteHystrixFactory implements FallbackFactory<HelloRemote> {
             public String hello(String name) {
                 return "hello " +name+", this message send failed 失败 降级 工厂 ";
             }
+
+            @Override
+            public String hi(String name) {
+                return "hi " +name+", this message send failed 失败 降级 工厂 ";
+            }
         };
     }
 }

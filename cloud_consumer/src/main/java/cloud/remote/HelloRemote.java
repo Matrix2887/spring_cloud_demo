@@ -4,6 +4,7 @@ import cloud.hystrix.HelloRemoteHystrix;
 import cloud.hystrix.HelloRemoteHystrixFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Primary;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,6 +19,10 @@ public interface HelloRemote {
 
     @RequestMapping(value = "/hello")
     public String hello(@RequestParam(value = "name") String name);
+
+
+    @RequestMapping(value = "/hi/{name}")
+    public String hi(@PathVariable(value = "name") String name);
 
 
 }

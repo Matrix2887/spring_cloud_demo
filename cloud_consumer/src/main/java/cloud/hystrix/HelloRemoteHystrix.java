@@ -13,4 +13,9 @@ public class HelloRemoteHystrix implements HelloRemote {
     public String hello(@RequestParam(value = "name") String name) {
         return "hello " +name+", this message send failed 失败 降级 ";
     }
+
+    @Override
+    public String hi(String name) {
+        return "hi " +name+", this message send failed 失败 降级 ";
+    }
 }

@@ -17,6 +17,7 @@
         <module>cloud_config_server</module>
         <module>cloud_gateway</module>
         <module>cloud_gateway_filter</module>
+        <module>cloud_strip_prefix_filter</module>
     </modules>
 
     <parent>
