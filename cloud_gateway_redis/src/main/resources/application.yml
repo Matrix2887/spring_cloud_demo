@@ -1,0 +1,68 @@
+
+server:
+  port: 8035
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+
+
+
+
+spring:
+  application:
+    name: spring-cloud-gateway-redis
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 0
+    timeout: 20s  # 连接超时时间（毫秒）默认是2000ms
+    lettuce:
+      pool:
+        max-active: 1024  # 连接池最大连接数（使用负值表示没有限制）
+        max-wait: -1s # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 200 # 连接池中的最大空闲连接
+        min-idle: 5 # 连接池中的最小空闲连接
+  cloud:
+    gateway:
+      routes:
+        - id: spring-cloud-producer
+          uri: lb://spring-cloud-producer    #lb代表负载均衡   member为注册中心上的服务名
+          predicates:
+            - Path=/name/**
+          filters: #截取调hi
+          - StripPrefix=2
+          # 限流过滤器，使用gateway内置令牌算法
+          - name: RequestRateLimiter
+            args:
+              # 令牌桶每秒填充平均速率,即行等价于允许用户每秒处理多少个请求平均数
+              redis-rate-limiter.replenishRate: 1
+              # 令牌桶的容量，允许在一秒钟内完成的最大请求数
+              redis-rate-limiter.burstCapacity: 2
+              # 用于限流的键的解析器的 Bean 对象的名字。它使用 SpEL 表达式根据#{@beanName}从 Spring 容器中获取 Bean 对象。
+              key-resolver: "#{@apiKeyResolver}"
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+#        cloud:
+#          gateway:
+#            routes:
+#              - id: requestratelimiter_route
+#                uri: lb://spring-cloud-producer
+#                filters:
+#                  - name: RequestRateLimiter
+#                    args:
+#                      redis-rate-limiter.replenishRate: 10
+#                      redis-rate-limiter.burstCapacity: 20
+#                      key-resolver: "#{@userKeyResolver}"
+#                predicates:
+#                  - Method=GET
+#            discovery:
+#              locator:
+#                enabled: true # 开启从注册中心动态创建路由的功能，利用微服务名进行路由"
+#                lower-case-service-id: true
