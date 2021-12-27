@@ -20,6 +20,7 @@
         <module>cloud_strip_prefix_filter</module>
         <module>cloud_prefix_path_filter</module>
         <module>cloud_gateway_redis</module>
+        <module>cloud_gateway_hystrix</module>
     </modules>
 
     <parent>
